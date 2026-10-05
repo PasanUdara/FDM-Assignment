@@ -1,0 +1,45 @@
+[
+  {
+    "model": "Logistic Regression",
+    "best_parameters": {
+      "select__k": "all",
+      "model__class_weight": null,
+      "model__C": 0.01291549665014884
+    },
+    "best_cv_roc_auc": 0.851167587235986
+  },
+  {
+    "model": "K-Nearest Neighbours",
+    "best_parameters": {
+      "select__k": 30,
+      "model__weights": "uniform",
+      "model__n_neighbors": 21,
+      "model__metric": "manhattan"
+    },
+    "best_cv_roc_auc": 0.8404122139776614
+  },
+  {
+    "model": "Random Forest",
+    "best_parameters": {
+      "select__k": "all",
+      "model__n_estimators": 300,
+      "model__min_samples_split": 5,
+      "model__min_samples_leaf": 4,
+      "model__max_features": "sqrt",
+      "model__max_depth": null
+    },
+    "best_cv_roc_auc": 0.8997619389812149
+  },
+  {
+    "model": "XGBoost",
+    "best_parameters": {
+      "select__k": 30,
+      "model__subsample": 0.85,
+      "model__n_estimators": 350,
+      "model__max_depth": 4,
+      "model__learning_rate": 0.2,
+      "model__colsample_bytree": 1.0
+    },
+    "best_cv_roc_auc": 0.9216989850537353
+  }
+]

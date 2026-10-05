@@ -1,0 +1,4 @@
+model,cv_roc_auc_mean,test_accuracy,test_precision,test_recall,test_f1,test_roc_auc
+"Gradient Boosting (baseline, raw)",0.92,0.911,0.898,0.663,0.763,0.922
+"Gradient Boosting (baseline, SMOTE-balanced)",0.98,0.909,0.877,0.675,0.763,0.924
+Gradient Boosting (tuned),0.928,0.912,0.922,0.647,0.76,0.929

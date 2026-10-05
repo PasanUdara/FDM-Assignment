@@ -1,0 +1,5 @@
+model,baseline_cv_roc_auc,tuned_cv_roc_auc,cv_roc_auc_std,test_roc_auc,test_average_precision,test_accuracy,test_precision,test_recall,test_f1,selected_features,search_seconds
+XGBoost,0.9208,0.9217,0.0049,0.9256,0.8562,0.9075,0.8845,0.6579,0.7545,30,56.9615
+Random Forest,0.8978,0.8998,0.0068,0.9035,0.8229,0.8967,0.8319,0.6542,0.7324,47,344.9675
+Logistic Regression,0.8505,0.8512,0.0043,0.8554,0.6645,0.7792,0.4929,0.7592,0.5977,47,27.5026
+K-Nearest Neighbours,0.7720,0.8404,0.0083,0.8527,0.6744,0.7851,0.5017,0.7577,0.6037,30,88.7147
