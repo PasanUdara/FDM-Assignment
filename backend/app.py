@@ -5,6 +5,7 @@ from pathlib import Path
 import joblib
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from backend.preprocessing import ROOT, load_preprocessor, transform_applicant
 from backend.schemas import ApplicantRequest, PredictionResponse
@@ -17,6 +18,8 @@ app.add_middleware(
     allow_origins=["http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:5500", "http://127.0.0.1:5500"],
     allow_methods=["GET", "POST"], allow_headers=["*"],
 )
+app.mount("/assets", StaticFiles(directory=ROOT / "assets"), name="assets")
+app.mount("/results", StaticFiles(directory=ROOT / "results"), name="results")
 
 model = None
 preprocessor = None

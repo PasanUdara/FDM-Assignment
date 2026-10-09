@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Model evaluation for the Credence credit-risk project.">
+  <title>Credence | Model Performance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="pages.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">C</span><span>credence</span></a><nav class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="eda.html">EDA</a><a class="active" href="model-performance.html">Model</a><a href="assessment.html">Assess risk</a></nav></header>
+    <section class="page-intro"><p class="eyebrow">02 · MODEL DEVELOPMENT & EVALUATION</p><h1>Testing several models, then selecting the strongest performer.</h1><p>Candidate models were tuned using cross-validation and compared on a separate test set. ROC-AUC was the selection measure because it evaluates ranking quality across decision thresholds.</p></section>
+    <section class="metrics" aria-label="Selected model metrics"><article class="metric-card"><span>SELECTED MODEL</span><strong>XGBoost</strong></article><article class="metric-card"><span>TEST ROC-AUC</span><strong>0.9256</strong></article><article class="metric-card"><span>TEST ACCURACY</span><strong>90.75%</strong></article><article class="metric-card"><span>TEST F1 SCORE</span><strong>0.7545</strong></article></section>
+    <section class="section-heading"><p class="eyebrow">CANDIDATE COMPARISON</p><h2>Independent test-set results</h2><p>XGBoost achieved the highest test ROC-AUC after tuning and was selected for deployment.</p></section>
+    <table class="comparison"><thead><tr><th>Model</th><th>CV ROC-AUC</th><th>Test ROC-AUC</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1</th></tr></thead><tbody>
+      <tr class="selected"><td>XGBoost — selected</td><td>0.9217</td><td>0.9256</td><td>0.9075</td><td>0.8845</td><td>0.6579</td><td>0.7545</td></tr>
+      <tr><td>Random Forest</td><td>0.8998</td><td>0.9035</td><td>0.8967</td><td>0.8319</td><td>0.6542</td><td>0.7324</td></tr>
+      <tr><td>Logistic Regression</td><td>0.8512</td><td>0.8554</td><td>0.7792</td><td>0.4929</td><td>0.7592</td><td>0.5977</td></tr>
+      <tr><td>K-Nearest Neighbours</td><td>0.8404</td><td>0.8527</td><td>0.7851</td><td>0.5017</td><td>0.7577</td><td>0.6037</td></tr>
+    </tbody></table>
+    <section class="section-heading"><p class="eyebrow">EVALUATION VISUALS</p><h2>ROC curves and the selected-model confusion matrix</h2></section>
+    <section class="two-col"><article class="chart-card"><h2>Test ROC curves</h2><p>ROC curves compare the true-positive and false-positive rates for every candidate model across thresholds.</p><img src="http://127.0.0.1:8000/results/roc_curves.png" alt="Test ROC curves for the candidate models"></article><article class="chart-card"><h2>XGBoost confusion matrix</h2><p>The confusion matrix shows test-set predictions at the chosen classification threshold.</p><img src="http://127.0.0.1:8000/results/confusion_matrix_xgboost.png" alt="Confusion matrix for the XGBoost model"></article></section>
+    <aside class="note"><strong>Deployment choice:</strong> tuned XGBoost was selected because it achieved the strongest independent test ROC-AUC (0.9256), with 30 selected features.</aside>
+    <p class="footer">Ready to use the deployed model? <a href="assessment.html">Open the risk assessment tool</a>.</p>
+  </main>
+</body>
+</html>

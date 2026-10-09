@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Exploratory data analysis for the Credence credit-risk project.">
+  <title>Credence | Exploratory Data Analysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="pages.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">C</span><span>credence</span></a><nav class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a class="active" href="eda.html">EDA</a><a href="model-performance.html">Model</a><a href="assessment.html">Assess risk</a></nav></header>
+    <section class="page-intro"><p class="eyebrow">01 · EXPLORATORY DATA ANALYSIS</p><h1>Understanding the data before training the model.</h1><p>This page documents the visual checks performed on the credit-risk dataset: data quality, distribution shape, outliers, target balance, and feature relationships.</p></section>
+    <section class="metrics" aria-label="EDA stages"><article class="metric-card"><span>DATA QUALITY</span><strong>Missingness</strong></article><article class="metric-card"><span>NUMERIC VARIABLES</span><strong>Distributions</strong></article><article class="metric-card"><span>TARGET VARIABLE</span><strong>Class balance</strong></article><article class="metric-card"><span>FEATURE RELATIONSHIPS</span><strong>Correlation</strong></article></section>
+    <section class="section-heading"><p class="eyebrow">DATA QUALITY & DISTRIBUTIONS</p><h2>Inspecting completeness and shape</h2><p>These checks identify variables requiring cleaning or transformation before the model-development stage.</p></section>
+    <section class="chart-grid">
+      <article class="chart-card"><h2>Missing values</h2><p>Missingness was reviewed before median imputation for numeric fields and an <em>Unknown</em> category for selected categorical fields.</p><img src="http://127.0.0.1:8000/assets/missing_values.png" alt="Chart showing missing values by field"></article>
+      <article class="chart-card"><h2>Numeric distributions</h2><p>Distribution plots help reveal skewed fields and extreme values that should be considered during preprocessing.</p><img src="http://127.0.0.1:8000/assets/distributions.png" alt="Histograms for numeric credit-risk variables"></article>
+      <article class="chart-card"><h2>Outlier review</h2><p>Box plots provide a clear view of unusually high or low observations across the numerical variables.</p><img src="http://127.0.0.1:8000/assets/outliers_boxplots.png" alt="Box plots showing numerical-variable outliers"></article>
+      <article class="chart-card"><h2>Categorical distributions</h2><p>Category counts help assess the prevalence of applicant characteristics and loan purposes.</p><img src="http://127.0.0.1:8000/assets/categorical_distributions.png" alt="Distributions for categorical credit-risk variables"></article>
+    </section>
+    <section class="section-heading"><p class="eyebrow">TARGET & RELATIONSHIPS</p><h2>Checking the prediction target and features</h2><p>Class balance and feature correlation guide the training, validation, and interpretation strategy.</p></section>
+    <section class="chart-grid">
+      <article class="chart-card"><h2>Loan-status class balance</h2><p>The target distribution was inspected so evaluation uses metrics beyond accuracy, including ROC-AUC and recall.</p><img src="http://127.0.0.1:8000/assets/class_imbalance.png" alt="Class-balance chart for loan status"></article>
+      <article class="chart-card"><h2>Correlation heatmap</h2><p>Correlation analysis highlights linear relationships among the numerical input variables.</p><img src="http://127.0.0.1:8000/assets/correlation_heatmap.png" alt="Correlation heatmap for numeric credit-risk features"></article>
+    </section>
+    <aside class="note"><strong>Outcome:</strong> the EDA findings informed duplicate removal, sensible range filtering, missing-value treatment, one-hot encoding, feature engineering, and stratified train/test splitting.</aside>
+    <p class="footer">Charts are generated project artifacts. Continue to <a href="model-performance.html">model performance</a> to see how the candidate models compared.</p>
+  </main>
+</body>
+</html>
