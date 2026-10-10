@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Credence Bank Credit Risk Assessment - Portfolio Risk Reports & Model Evaluation">
+  <title>Credence | Risk Reports & Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- PERSISTENT LEFT SIDEBAR -->
+    <aside class="sidebar" id="appSidebar">
+      <div class="sidebar-header">
+        <a class="brand-link" href="index.html">
+          <div class="brand-icon-box">C</div>
+          <div class="brand-details">
+            <span class="brand-title">credence</span>
+            <span class="brand-tagline">Risk Intelligence</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav-container" aria-label="Main Navigation">
+        <span class="nav-section-label">Core Operations</span>
+        <a class="nav-item" href="index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect></svg>
+          <span>Dashboard</span>
+        </a>
+        <a class="nav-item" href="new-application.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+          <span>New Application</span>
+        </a>
+        <a class="nav-item" href="history.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Application History</span>
+        </a>
+
+        <span class="nav-section-label">Analytics & Config</span>
+        <a class="nav-item active" href="reports.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          <span>Reports</span>
+        </a>
+        <a class="nav-item" href="settings.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="model-badge-card">
+          <div class="model-indicator-dot"></div>
+          <div class="model-badge-info">
+            <span class="model-badge-name">XGBoost v2.4 Active</span>
+            <span class="model-badge-status">Test ROC-AUC: 0.926</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <div class="main-wrapper">
+      <!-- TOP BAR -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle-btn mobile-menu-btn" id="sidebarToggleBtn" onclick="toggleAppSidebar(event)" aria-label="Toggle navigation menu" title="Toggle Sidebar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="breadcrumb-container">
+            <a class="breadcrumb-root" href="index.html">Credence</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Reports & Analytics</span>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="search-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input class="search-input" id="globalSearch" type="search" placeholder="Search applicant, ID or loan..." aria-label="Global search">
+          </div>
+
+          <button class="icon-action-btn" id="notifBtn" aria-label="Notifications">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span class="icon-badge">3</span>
+          </button>
+
+          <div class="officer-profile" id="profileBtn">
+            <div class="officer-avatar">SJ</div>
+            <div class="officer-info">
+              <span class="officer-name">Sarah Jenkins</span>
+              <span class="officer-role">Senior Loan Officer</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- MAIN CONTENT -->
+      <main class="main-content">
+        <div class="page-header-row">
+          <div class="page-title-block">
+            <h1>Risk Reports & Analytics</h1>
+            <p>Portfolio concentration analysis, loan intent risk distribution, and machine learning model validation audits.</p>
+          </div>
+          <button class="btn btn-secondary" onclick="window.print()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            <span>Print Report</span>
+          </button>
+        </div>
+
+        <!-- RISK METRICS BY LOAN INTENT -->
+        <div class="grid-12" style="margin-bottom: var(--space-6);">
+          <div class="col-8 card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Default Risk by Loan Intent</h2>
+                <p class="card-subtitle">Observed portfolio default rate across borrower purpose categories</p>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.84rem; font-weight: 600; margin-bottom: 4px;">
+                  <span>Venture / New Business</span>
+                  <span style="color: var(--risk-high); font-weight: 800;">36.4% Default Rate</span>
+                </div>
+                <div class="risk-factor-bar-bg" style="height: 10px;">
+                  <div class="risk-factor-bar-fill risk-up" style="width: 36.4%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.84rem; font-weight: 600; margin-bottom: 4px;">
+                  <span>Debt Consolidation</span>
+                  <span style="color: var(--risk-med); font-weight: 800;">22.8% Default Rate</span>
+                </div>
+                <div class="risk-factor-bar-bg" style="height: 10px;">
+                  <div class="risk-factor-bar-fill" style="width: 22.8%; background: var(--risk-med);"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.84rem; font-weight: 600; margin-bottom: 4px;">
+                  <span>Medical Expenses</span>
+                  <span style="color: var(--risk-med); font-weight: 800;">18.5% Default Rate</span>
+                </div>
+                <div class="risk-factor-bar-bg" style="height: 10px;">
+                  <div class="risk-factor-bar-fill" style="width: 18.5%; background: var(--risk-med);"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.84rem; font-weight: 600; margin-bottom: 4px;">
+                  <span>Personal Needs</span>
+                  <span style="color: var(--risk-low); font-weight: 800;">12.2% Default Rate</span>
+                </div>
+                <div class="risk-factor-bar-bg" style="height: 10px;">
+                  <div class="risk-factor-bar-fill risk-down" style="width: 12.2%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.84rem; font-weight: 600; margin-bottom: 4px;">
+                  <span>Education</span>
+                  <span style="color: var(--risk-low); font-weight: 800;">9.8% Default Rate</span>
+                </div>
+                <div class="risk-factor-bar-bg" style="height: 10px;">
+                  <div class="risk-factor-bar-fill risk-down" style="width: 9.8%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.84rem; font-weight: 600; margin-bottom: 4px;">
+                  <span>Home Improvement</span>
+                  <span style="color: var(--risk-low); font-weight: 800;">8.4% Default Rate</span>
+                </div>
+                <div class="risk-factor-bar-bg" style="height: 10px;">
+                  <div class="risk-factor-bar-fill risk-down" style="width: 8.4%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MODEL VALIDATION CARD -->
+          <div class="col-4 card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Model Evaluation</h2>
+                <p class="card-subtitle">Classifier benchmark comparison</p>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+              <div style="padding: var(--space-3); border-radius: var(--radius-md); background: #f0fdf4; border: 1px solid #bbf7d0;">
+                <div style="font-size: 0.76rem; font-weight: 700; color: #166534; text-transform: uppercase;">Selected Model</div>
+                <div style="font-size: 1.1rem; font-weight: 800; color: #14532d;">Tuned XGBoost</div>
+                <div style="font-size: 0.82rem; color: #166534; margin-top: 2px;">ROC-AUC: <strong>0.926</strong> | Accuracy: <strong>93.4%</strong></div>
+              </div>
+
+              <div style="padding: var(--space-3); border-radius: var(--radius-md); background: var(--bg-card-alt); border: 1px solid var(--border-subtle);">
+                <div style="font-size: 0.76rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Candidate 2</div>
+                <div style="font-size: 0.95rem; font-weight: 700; color: var(--text-main);">Random Forest</div>
+                <div style="font-size: 0.82rem; color: var(--text-muted);">ROC-AUC: 0.921 | Accuracy: 92.8%</div>
+              </div>
+
+              <div style="padding: var(--space-3); border-radius: var(--radius-md); background: var(--bg-card-alt); border: 1px solid var(--border-subtle);">
+                <div style="font-size: 0.76rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Candidate 3</div>
+                <div style="font-size: 0.95rem; font-weight: 700; color: var(--text-main);">K-Nearest Neighbours</div>
+                <div style="font-size: 0.82rem; color: var(--text-muted);">ROC-AUC: 0.842 | Accuracy: 84.1%</div>
+              </div>
+
+              <div style="padding: var(--space-3); border-radius: var(--radius-md); background: var(--bg-card-alt); border: 1px solid var(--border-subtle);">
+                <div style="font-size: 0.76rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Candidate 4</div>
+                <div style="font-size: 0.95rem; font-weight: 700; color: var(--text-main);">Logistic Regression</div>
+                <div style="font-size: 0.82rem; color: var(--text-muted);">ROC-AUC: 0.814 | Accuracy: 80.5%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EDA & DATASET CHARTS FROM PROJECT -->
+        <section class="card" aria-label="Exploratory Data Findings">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Training Data Quality & Feature Distributions</h2>
+              <p class="card-subtitle">Visual analysis conducted during pipeline development</p>
+            </div>
+          </div>
+
+          <div class="grid-12">
+            <div class="col-6" style="text-align: center;">
+              <h4 style="font-size: 0.88rem; font-weight: 700; margin-bottom: 8px;">Target Class Distribution (Default vs Non-Default)</h4>
+              <img src="http://127.0.0.1:8000/assets/class_imbalance.png" alt="Class Balance" style="border-radius: var(--radius-md); border: 1px solid var(--border-subtle); max-height: 240px; margin: 0 auto;" onerror="this.style.display='none'">
+            </div>
+            <div class="col-6" style="text-align: center;">
+              <h4 style="font-size: 0.88rem; font-weight: 700; margin-bottom: 8px;">Correlation Heatmap of Numerical Features</h4>
+              <img src="http://127.0.0.1:8000/assets/correlation_heatmap.png" alt="Correlation Heatmap" style="border-radius: var(--radius-md); border: 1px solid var(--border-subtle); max-height: 240px; margin: 0 auto;" onerror="this.style.display='none'">
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="data-store.js"></script>
+</body>
+</html>

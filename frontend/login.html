@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Credence Risk Intelligence - Unified Authentication & Role Gateway">
+  <title>Credence | Portal Sign In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <div class="auth-page-shell">
+    <div class="auth-card">
+      <div class="auth-header">
+        <a class="brand-link" href="login.html" style="justify-content: center; margin-bottom: var(--space-3);">
+          <div class="brand-icon-box" style="width: 38px; height: 38px; font-size: 1.25rem;">C</div>
+          <div class="brand-details" style="text-align: left;">
+            <span class="brand-title" style="font-size: 1.35rem;">credence</span>
+            <span class="brand-tagline">Risk Intelligence</span>
+          </div>
+        </a>
+        <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--deep); margin: 0 0 6px 0;">Sign in to Credence Portal</h2>
+        <p style="font-size: 0.86rem; color: var(--text-muted); margin: 0;">Select your role to access your personalized lending portal</p>
+      </div>
+
+      <div class="auth-body">
+        <!-- ROLE TABS -->
+        <div class="auth-role-tabs">
+          <button type="button" class="auth-role-tab active" id="tabOfficer" onclick="selectRole('officer')">
+            <span>🧑‍💼 Loan Officer</span>
+          </button>
+          <button type="button" class="auth-role-tab" id="tabApplicant" onclick="selectRole('applicant')">
+            <span>👤 Loan Applicant</span>
+          </button>
+        </div>
+
+        <!-- 1-CLICK DEMO ACCESS (FAST & INTUITIVE FOR EVALUATION) -->
+        <div style="margin-bottom: var(--space-6);">
+          <label class="form-label" style="text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.8px; color: var(--text-muted); margin-bottom: 8px;">Quick Demo One-Click Access</label>
+          
+          <!-- Officer Quick Login -->
+          <div class="demo-login-card" id="officerQuickCard" onclick="quickLoginOfficer()">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 38px; height: 38px; border-radius: 50%; background: var(--deep); color: var(--mint-light); font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 0.88rem;">SJ</div>
+              <div>
+                <strong style="display: block; font-size: 0.92rem; color: var(--text-main);">Sarah Jenkins</strong>
+                <span style="font-size: 0.78rem; color: var(--text-muted);">Senior Credit Officer · Underwriting Queue</span>
+              </div>
+            </div>
+            <span class="badge badge-low" style="border: none;">Sign In →</span>
+          </div>
+
+          <!-- Applicant Quick Login -->
+          <div class="demo-login-card" id="applicantQuickCard" onclick="quickLoginApplicant()" style="display: none;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 38px; height: 38px; border-radius: 50%; background: #0369a1; color: #ffffff; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 0.88rem;">EB</div>
+              <div>
+                <strong style="display: block; font-size: 0.92rem; color: var(--text-main);">Eleanor Brooks</strong>
+                <span style="font-size: 0.78rem; color: var(--text-muted);">Borrower · Track Application & Status</span>
+              </div>
+            </div>
+            <span class="badge" style="background: #e0f2fe; color: #0369a1; border: none;">Sign In →</span>
+          </div>
+        </div>
+
+        <div style="position: relative; text-align: center; margin: var(--space-6) 0;">
+          <div style="position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: var(--line);"></div>
+          <span style="position: relative; background: #ffffff; padding: 0 12px; font-size: 0.76rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Or sign in with custom credentials</span>
+        </div>
+
+        <!-- CUSTOM LOGIN FORM -->
+        <form id="loginForm">
+          <div class="form-group" style="margin-bottom: var(--space-4);">
+            <label class="form-label" for="loginName" id="labelName">Full Legal Name</label>
+            <input class="form-control" type="text" id="loginName" value="Sarah Jenkins" required>
+          </div>
+
+          <div class="form-group" style="margin-bottom: var(--space-4);">
+            <label class="form-label" for="loginEmail">Email Address</label>
+            <input class="form-control" type="email" id="loginEmail" value="sarah.jenkins@credence.bank" required>
+          </div>
+
+          <div class="form-group" style="margin-bottom: var(--space-6);">
+            <label class="form-label" for="loginPassword">Portal Password / Access Code</label>
+            <input class="form-control" type="password" id="loginPassword" value="password123" required>
+          </div>
+
+          <button class="btn btn-primary btn-lg" type="submit" style="width: 100%; justify-content: center;">
+            <span id="submitBtnText">Sign In as Loan Officer</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </form>
+
+        <div style="margin-top: var(--space-6); text-align: center; font-size: 0.8rem; color: var(--text-muted);">
+          <span>Enterprise Decision Support Platform · SOC2 Type II Certified</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="data-store.js"></script>
+  <script>
+    let activeRole = "officer";
+
+    function selectRole(role) {
+      activeRole = role;
+      const tabOfficer = document.getElementById("tabOfficer");
+      const tabApplicant = document.getElementById("tabApplicant");
+      const officerQuick = document.getElementById("officerQuickCard");
+      const applicantQuick = document.getElementById("applicantQuickCard");
+      const nameInput = document.getElementById("loginName");
+      const emailInput = document.getElementById("loginEmail");
+      const submitText = document.getElementById("submitBtnText");
+
+      if (role === "officer") {
+        tabOfficer.classList.add("active");
+        tabApplicant.classList.remove("active");
+        officerQuick.style.display = "flex";
+        applicantQuick.style.display = "none";
+        nameInput.value = "Sarah Jenkins";
+        emailInput.value = "sarah.jenkins@credence.bank";
+        submitText.textContent = "Sign In as Loan Officer";
+      } else {
+        tabApplicant.classList.add("active");
+        tabOfficer.classList.remove("active");
+        officerQuick.style.display = "none";
+        applicantQuick.style.display = "flex";
+        nameInput.value = "Eleanor Brooks";
+        emailInput.value = "eleanor.brooks@example.com";
+        submitText.textContent = "Sign In as Applicant";
+      }
+    }
+
+    function quickLoginOfficer() {
+      setAuthUser(DEFAULT_OFFICER_USER);
+      showToast("Signed in as Loan Officer (Sarah Jenkins)", "success");
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 350);
+    }
+
+    function quickLoginApplicant() {
+      setAuthUser(DEFAULT_APPLICANT_USER);
+      showToast("Signed in as Applicant (Eleanor Brooks)", "success");
+      setTimeout(() => {
+        window.location.href = "applicant-dashboard.html";
+      }, 350);
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("loginName").value.trim();
+      const email = document.getElementById("loginEmail").value.trim();
+      
+      const initials = name.split(" ").map(w => w[0]).join("").toUpperCase().slice(0, 2) || "U";
+      const user = {
+        id: activeRole === "officer" ? "OFF-" + Math.floor(100 + Math.random() * 900) : "APP-USER-" + Math.floor(1000 + Math.random() * 9000),
+        name: name,
+        email: email,
+        role: activeRole,
+        title: activeRole === "officer" ? "Loan Officer" : "Loan Applicant",
+        avatar: initials
+      };
+
+      setAuthUser(user);
+      showToast(`Welcome, ${name}! Signed in as ${activeRole === 'officer' ? 'Loan Officer' : 'Applicant'}`, "success");
+      setTimeout(() => {
+        if (activeRole === "officer") {
+          window.location.href = "index.html";
+        } else {
+          window.location.href = "applicant-dashboard.html";
+        }
+      }, 350);
+    });
+
+    // Check if user role was passed via query parameter
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("role") === "applicant") {
+      selectRole("applicant");
+    }
+  </script>
+</body>
+</html>

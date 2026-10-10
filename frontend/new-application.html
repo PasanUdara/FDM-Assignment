@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Credence Bank Credit Risk Assessment - New Loan Application Intake Form">
-  <title>Credence | Risk Assessment</title>
+  <title>Credence | New Loan Application</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
@@ -63,7 +63,7 @@
 
     <!-- MAIN CONTENT AREA -->
     <div class="main-wrapper">
-      <!-- TOP BAR -->
+      <!-- PERSISTENT TOP BAR -->
       <header class="topbar">
         <div class="topbar-left">
           <button class="sidebar-toggle-btn mobile-menu-btn" id="sidebarToggleBtn" onclick="toggleAppSidebar(event)" aria-label="Toggle navigation menu" title="Toggle Sidebar">
@@ -72,7 +72,7 @@
           <div class="breadcrumb-container">
             <a class="breadcrumb-root" href="index.html">Credence</a>
             <span class="breadcrumb-separator">/</span>
-            <span class="breadcrumb-current">Assess Risk</span>
+            <span class="breadcrumb-current">New Loan Application</span>
           </div>
         </div>
 
@@ -87,6 +87,25 @@
             <span class="icon-badge">3</span>
           </button>
 
+          <div class="dropdown-menu" id="notifDropdown">
+            <div class="dropdown-header">
+              <h4>System Alerts</h4>
+              <span class="badge badge-low">3 New</span>
+            </div>
+            <a class="dropdown-item" href="history.html">
+              <div>
+                <p class="dropdown-item-title">High-risk applicant flagged</p>
+                <p class="dropdown-item-sub">APP-2026-9040 Marcus Vance flagged at 73.8% risk.</p>
+              </div>
+            </a>
+            <a class="dropdown-item" href="settings.html">
+              <div>
+                <p class="dropdown-item-title">Model Retraining Completed</p>
+                <p class="dropdown-item-sub">XGBoost v2.4 test ROC-AUC updated to 0.926.</p>
+              </div>
+            </a>
+          </div>
+
           <div class="officer-profile" id="profileBtn">
             <div class="officer-avatar">SJ</div>
             <div class="officer-info">
@@ -99,9 +118,10 @@
 
       <!-- MAIN FORM CONTENT -->
       <main class="main-content">
+        <!-- Page Title & Header Actions -->
         <div class="page-header-row">
           <div class="page-title-block">
-            <h1>Loan Risk Assessment</h1>
+            <h1>New Loan Application</h1>
             <p>Enter applicant background, requested financing parameters, and credit bureau markers to assess default probability.</p>
           </div>
           <div style="display: flex; gap: var(--space-3);">
@@ -112,6 +132,7 @@
           </div>
         </div>
 
+        <!-- PROGRESS STEP INDICATOR AT TOP -->
         <div class="step-progress-bar" aria-label="Form Progress">
           <a class="step-item active" href="#sectionApplicant">
             <div class="step-circle">1</div>
@@ -127,8 +148,10 @@
           </a>
         </div>
 
+        <!-- APPLICATION FORM (Clean Single Flow with 3 Distinct Card Sections) -->
         <form id="loanApplicationForm" novalidate>
-          <!-- SECTION 1 -->
+          
+          <!-- SECTION 1: APPLICANT DETAILS -->
           <section class="card" id="sectionApplicant" style="margin-bottom: var(--space-6);">
             <div class="card-header">
               <div>
@@ -139,18 +162,23 @@
             </div>
 
             <div class="grid-12">
+              <!-- Full Name (Helper field for realistic UI) -->
               <div class="col-6 form-group">
                 <label class="form-label" for="applicant_name">Applicant Full Name</label>
                 <input class="form-control" id="applicant_name" name="applicant_name" type="text" placeholder="e.g. David Vance" required value="David Vance">
                 <span class="form-helper">Legal name matching identity documents</span>
-                <span class="invalid-feedback">Please enter applicant's name</span>
+                <span class="invalid-feedback">Please enter the applicant's name</span>
               </div>
+
+              <!-- Age -->
               <div class="col-3 form-group">
                 <label class="form-label" for="person_age">Age (Years)</label>
                 <input class="form-control" id="person_age" name="person_age" type="number" min="18" max="100" placeholder="e.g. 34" required value="34">
                 <span class="form-helper">Must be 18 or older</span>
                 <span class="invalid-feedback">Age must be between 18 and 100</span>
               </div>
+
+              <!-- Marital Status -->
               <div class="col-3 form-group">
                 <label class="form-label" for="marital_status">Marital Status</label>
                 <select class="form-control" id="marital_status" name="marital_status" required>
@@ -161,17 +189,23 @@
                 </select>
                 <span class="form-helper">Civil status</span>
               </div>
+
+              <!-- Annual Income -->
               <div class="col-4 form-group">
                 <label class="form-label" for="person_income">Annual Income (USD)</label>
                 <input class="form-control" id="person_income" name="person_income" type="number" min="1000" step="100" placeholder="e.g. 75000" required value="75000">
                 <span class="form-helper">Pre-tax verified gross annual income</span>
                 <span class="invalid-feedback">Please enter a valid annual income</span>
               </div>
+
+              <!-- Monthly Income (Auto-calculated / synced) -->
               <div class="col-4 form-group">
                 <label class="form-label" for="monthly_income">Monthly Income (USD)</label>
                 <input class="form-control" id="monthly_income" name="monthly_income" type="number" min="100" step="1" placeholder="Auto-calculated" required value="6250">
-                <span class="form-helper">Gross monthly earnings</span>
+                <span class="form-helper">Gross monthly earnings (Annual ÷ 12)</span>
               </div>
+
+              <!-- Employment Type -->
               <div class="col-4 form-group">
                 <label class="form-label" for="employment_type">Employment Type</label>
                 <select class="form-control" id="employment_type" name="employment_type" required>
@@ -184,12 +218,16 @@
                 </select>
                 <span class="form-helper">Primary source of income</span>
               </div>
+
+              <!-- Years Employed -->
               <div class="col-4 form-group">
                 <label class="form-label" for="person_emp_length">Years Employed</label>
                 <input class="form-control" id="person_emp_length" name="person_emp_length" type="number" min="0" max="60" step="0.5" placeholder="e.g. 6.5" required value="6.5">
                 <span class="form-helper">Tenure with current employer</span>
                 <span class="invalid-feedback">Enter tenure between 0 and 60 years</span>
               </div>
+
+              <!-- Home Ownership -->
               <div class="col-4 form-group">
                 <label class="form-label" for="person_home_ownership">Home Ownership</label>
                 <select class="form-control" id="person_home_ownership" name="person_home_ownership" required>
@@ -200,6 +238,8 @@
                 </select>
                 <span class="form-helper">Current residential tenure</span>
               </div>
+
+              <!-- Education Level -->
               <div class="col-4 form-group">
                 <label class="form-label" for="education_level">Education Level</label>
                 <select class="form-control" id="education_level" name="education_level" required>
@@ -214,7 +254,7 @@
             </div>
           </section>
 
-          <!-- SECTION 2 -->
+          <!-- SECTION 2: LOAN DETAILS -->
           <section class="card" id="sectionLoan" style="margin-bottom: var(--space-6);">
             <div class="card-header">
               <div>
@@ -225,6 +265,7 @@
             </div>
 
             <div class="grid-12">
+              <!-- Loan Amount (Slider paired with number input) -->
               <div class="col-12 form-group">
                 <label class="form-label" for="loan_amnt">
                   <span>Loan Amount (USD)</span>
@@ -235,9 +276,10 @@
                   <input class="form-control paired-input" id="loan_amnt" name="loan_amnt" type="number" min="1000" max="100000" step="500" value="20000" required>
                 </div>
                 <span class="form-helper">Adjust slider or type direct value ($1,000 - $100,000)</span>
-                <span class="invalid-feedback">Enter a valid loan amount</span>
+                <span class="invalid-feedback">Enter a valid loan amount between $1,000 and $100,000</span>
               </div>
 
+              <!-- Loan Intent / Purpose -->
               <div class="col-4 form-group">
                 <label class="form-label" for="loan_intent">Loan Intent</label>
                 <select class="form-control" id="loan_intent" name="loan_intent" required>
@@ -251,6 +293,7 @@
                 <span class="form-helper">Primary purpose for financing</span>
               </div>
 
+              <!-- Loan Term in Months -->
               <div class="col-4 form-group">
                 <label class="form-label" for="loan_term_months">Loan Term (Months)</label>
                 <select class="form-control" id="loan_term_months" name="loan_term_months" required>
@@ -264,6 +307,7 @@
                 <span class="form-helper">Amortization schedule</span>
               </div>
 
+              <!-- Auto-calculated Loan-to-Income Ratio -->
               <div class="col-4 form-group">
                 <label class="form-label" for="loan_percent_income">Loan-to-Income Ratio</label>
                 <div style="display: flex; align-items: center; gap: var(--space-3);">
@@ -275,7 +319,7 @@
             </div>
           </section>
 
-          <!-- SECTION 3 -->
+          <!-- SECTION 3: CREDIT HISTORY -->
           <section class="card" id="sectionCredit" style="margin-bottom: var(--space-6);">
             <div class="card-header">
               <div>
@@ -286,6 +330,7 @@
             </div>
 
             <div class="grid-12">
+              <!-- Credit Score with Small Gauge/Indicator -->
               <div class="col-6 form-group">
                 <label class="form-label" for="credit_score">
                   <span>Credit Score (FICO / Bureau)</span>
@@ -302,6 +347,7 @@
                 <span class="invalid-feedback">Score must be between 300 and 850</span>
               </div>
 
+              <!-- Credit History Length -->
               <div class="col-3 form-group">
                 <label class="form-label" for="cb_person_cred_hist_length">Credit History (Years)</label>
                 <input class="form-control" id="cb_person_cred_hist_length" name="cb_person_cred_hist_length" type="number" min="0" max="60" step="0.5" placeholder="e.g. 9" required value="9">
@@ -309,6 +355,7 @@
                 <span class="invalid-feedback">Enter a valid credit history length</span>
               </div>
 
+              <!-- Previous Default on File (Toggle Switch) -->
               <div class="col-3 form-group">
                 <label class="form-label">Previous Default on File</label>
                 <div class="toggle-switch-wrapper">
@@ -321,18 +368,21 @@
                 <span class="form-helper">Delinquency record in bureau history</span>
               </div>
 
+              <!-- Credit Utilization (%) -->
               <div class="col-4 form-group">
                 <label class="form-label" for="credit_utilization_pct">Revolving Credit Utilization (%)</label>
                 <input class="form-control" id="credit_utilization_pct" name="credit_utilization_pct" type="number" min="0" max="100" step="0.1" value="24.5">
                 <span class="form-helper">Balances ÷ total credit limits</span>
               </div>
 
+              <!-- Existing Monthly Debt -->
               <div class="col-4 form-group">
                 <label class="form-label" for="existing_monthly_debt">Existing Monthly Debt (USD)</label>
                 <input class="form-control" id="existing_monthly_debt" name="existing_monthly_debt" type="number" min="0" step="10" value="480">
                 <span class="form-helper">Mortgage, auto, card payments</span>
               </div>
 
+              <!-- Debt-to-Income Ratio -->
               <div class="col-4 form-group">
                 <label class="form-label" for="debt_to_income_ratio">Debt-to-Income (DTI)</label>
                 <input class="form-control" id="debt_to_income_ratio" name="debt_to_income_ratio" type="number" min="0" max="1" step="0.001" readonly value="0.22" style="background-color: var(--bg-card-alt); font-weight: 700;">
@@ -341,7 +391,7 @@
             </div>
           </section>
 
-          <!-- STICKY FOOTER BAR -->
+          <!-- STICKY FOOTER BAR AT BOTTOM -->
           <footer class="sticky-form-footer">
             <div style="display: flex; align-items: center; gap: var(--space-4);">
               <a class="btn btn-secondary" href="index.html">Cancel</a>
@@ -383,6 +433,7 @@
       const submitBtn = document.getElementById("btnAssessRisk");
       const validationWarning = document.getElementById("validationWarning");
 
+      // Sync slider and loan amount
       function syncLoanAmount(val) {
         loanSlider.value = val;
         loanInput.value = val;
@@ -393,6 +444,7 @@
       loanSlider.addEventListener("input", (e) => syncLoanAmount(e.target.value));
       loanInput.addEventListener("input", (e) => syncLoanAmount(e.target.value));
 
+      // Calculate ratios
       function updateCalculations() {
         const annual = parseFloat(annualIncomeInput.value) || 0;
         const loan = parseFloat(loanInput.value) || 0;
@@ -424,6 +476,7 @@
       annualIncomeInput.addEventListener("input", updateCalculations);
       existingDebtInput.addEventListener("input", updateCalculations);
 
+      // Credit score gauge update
       function updateCreditScoreVisuals() {
         const score = parseInt(creditScoreInput.value) || 300;
         const pct = Math.min(100, Math.max(0, ((score - 300) / 550) * 100));
@@ -451,6 +504,7 @@
 
       creditScoreInput.addEventListener("input", updateCreditScoreVisuals);
 
+      // Default toggle label
       defaultToggle.addEventListener("change", () => {
         if (defaultToggle.checked) {
           defaultToggleLabel.textContent = "Default on File";
@@ -461,6 +515,7 @@
         }
       });
 
+      // Sample Data Button
       btnSampleData.addEventListener("click", () => {
         document.getElementById("applicant_name").value = "Elena Rostova";
         document.getElementById("person_age").value = "32";
@@ -484,9 +539,11 @@
         showToast("Sample applicant details loaded successfully", "success");
       });
 
+      // Form Submission & Assessment
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
         
+        // Validate inputs
         let valid = true;
         const requiredInputs = form.querySelectorAll("input[required], select[required]");
         requiredInputs.forEach(input => {
@@ -505,6 +562,7 @@
         }
         validationWarning.style.display = "none";
 
+        // Collect form data
         const payload = {
           applicant_name: document.getElementById("applicant_name").value,
           person_age: parseInt(document.getElementById("person_age").value),
@@ -528,10 +586,13 @@
           has_co_applicant: false
         };
 
+        // UI Loading State
         submitBtn.disabled = true;
         submitBtn.querySelector("span").textContent = "Assessing Risk...";
 
         let resultData = null;
+
+        // Try Live FastAPI endpoint first
         try {
           const res = await fetch("http://127.0.0.1:8000/predict", {
             method: "POST",
@@ -552,26 +613,50 @@
           console.warn("Backend API unavailable, using production fallback risk engine:", err);
         }
 
+        // Use high-fidelity model simulation fallback
         if (!resultData) {
           const scored = assessApplicantRiskModel(payload);
-          resultData = { ...payload, ...scored };
+          resultData = {
+            ...payload,
+            ...scored
+          };
         }
 
+        // Generate ID and metadata
         const appCount = getApplications().length + 1000;
         resultData.id = `APP-2026-${appCount}`;
         resultData.date = new Date().toLocaleDateString("en-US", { month: "short", day: "2-digit", year: "numeric" });
         resultData.officer = "Sarah Jenkins";
         resultData.status = "Pending";
+        resultData.officer = "Sarah Jenkins";
 
+        // Persist to store and current session
         addApplication(resultData);
         saveCurrentAssessment(resultData);
 
-        showToast("Risk assessment successfully computed", "success");
+        const isApplicant = getAuthUser().role === "applicant";
+        showToast(isApplicant ? "Application submitted! Forwarded to Loan Officer queue." : "Risk assessment successfully computed", "success");
+
+        // Navigate directly to PAGE 3 (Prediction Result)
         setTimeout(() => {
           window.location.href = `prediction-result.html?id=${resultData.id}`;
         }, 350);
       });
 
+      // Check current user session and prefill if applicant
+      const activeUser = getAuthUser();
+      if (activeUser && activeUser.role === "applicant") {
+        const applicantNameField = document.getElementById("applicant_name");
+        if (applicantNameField && (!applicantNameField.value || applicantNameField.value === "Elena Rostova")) {
+          applicantNameField.value = activeUser.name;
+        }
+        const heroCopy = document.querySelector(".page-title-block p");
+        if (heroCopy) {
+          heroCopy.innerHTML = `Submitting loan application as <strong>${activeUser.name}</strong>. Your file will be routed to Loan Officer Sarah Jenkins.`;
+        }
+      }
+
+      // Initial run
       updateCalculations();
       updateCreditScoreVisuals();
     });

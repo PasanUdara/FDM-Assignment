@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Credence Bank Credit Risk Assessment - Application History and Underwriting Audit Log">
+  <title>Credence | Application History</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- PERSISTENT LEFT SIDEBAR -->
+    <aside class="sidebar" id="appSidebar">
+      <div class="sidebar-header">
+        <a class="brand-link" href="index.html">
+          <div class="brand-icon-box">C</div>
+          <div class="brand-details">
+            <span class="brand-title">credence</span>
+            <span class="brand-tagline">Risk Intelligence</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav-container" aria-label="Main Navigation">
+        <span class="nav-section-label">Core Operations</span>
+        <a class="nav-item" href="index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect></svg>
+          <span>Dashboard</span>
+        </a>
+        <a class="nav-item" href="new-application.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+          <span>New Application</span>
+        </a>
+        <a class="nav-item active" href="history.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Application History</span>
+        </a>
+
+        <span class="nav-section-label">Analytics & Config</span>
+        <a class="nav-item" href="reports.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          <span>Reports</span>
+        </a>
+        <a class="nav-item" href="settings.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="model-badge-card">
+          <div class="model-indicator-dot"></div>
+          <div class="model-badge-info">
+            <span class="model-badge-name">XGBoost v2.4 Active</span>
+            <span class="model-badge-status">Test ROC-AUC: 0.926</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <div class="main-wrapper">
+      <!-- TOP BAR -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle-btn mobile-menu-btn" id="sidebarToggleBtn" onclick="toggleAppSidebar(event)" aria-label="Toggle navigation menu" title="Toggle Sidebar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="breadcrumb-container">
+            <a class="breadcrumb-root" href="index.html">Credence</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Application History</span>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="search-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input class="search-input" id="globalSearch" type="search" placeholder="Search applicant, ID or loan..." aria-label="Global search">
+          </div>
+
+          <button class="icon-action-btn" id="notifBtn" aria-label="Notifications">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span class="icon-badge">3</span>
+          </button>
+
+          <div class="officer-profile" id="profileBtn">
+            <div class="officer-avatar">SJ</div>
+            <div class="officer-info">
+              <span class="officer-name">Sarah Jenkins</span>
+              <span class="officer-role">Senior Loan Officer</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- MAIN CONTENT -->
+      <main class="main-content">
+        <!-- PAGE TITLE -->
+        <div class="page-header-row">
+          <div class="page-title-block">
+            <h1>Application History</h1>
+            <p>Comprehensive historical ledger of evaluated credit applications, underwriting determinations, and model scores.</p>
+          </div>
+          <div style="display: flex; gap: var(--space-3);">
+            <button class="btn btn-secondary" id="btnExportTop" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Export CSV</span>
+            </button>
+            <a class="btn btn-primary" href="new-application.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>New Application</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- FILTER BAR (Date range picker, risk level filter, status filter, search box for Applicant ID) -->
+        <section class="card" style="margin-bottom: var(--space-6); padding: var(--space-5) var(--space-6);" aria-label="Filter Controls">
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: flex-end;">
+            
+            <!-- Search Box for Applicant ID / Name -->
+            <div style="flex: 1; min-width: 220px;" class="form-group">
+              <label class="form-label" for="searchApplicantId">Search Applicant ID or Name</label>
+              <input class="form-control" id="searchApplicantId" type="text" placeholder="e.g. APP-2026-9041 or Brooks">
+            </div>
+
+            <!-- Date Range Picker -->
+            <div style="width: 190px;" class="form-group">
+              <label class="form-label" for="filterDateRange">Date Range</label>
+              <select class="form-control" id="filterDateRange">
+                <option value="all">All Dates</option>
+                <option value="today">Today</option>
+                <option value="7days">Last 7 Days</option>
+                <option value="30days" selected>Last 30 Days</option>
+                <option value="quarter">This Quarter</option>
+              </select>
+            </div>
+
+            <!-- Risk Level Filter (Low / Medium / High) -->
+            <div style="width: 170px;" class="form-group">
+              <label class="form-label" for="filterRisk">Predicted Risk</label>
+              <select class="form-control" id="filterRisk">
+                <option value="all">All Risk Levels</option>
+                <option value="Low">Low Risk</option>
+                <option value="Medium">Medium Risk</option>
+                <option value="High">High Risk</option>
+              </select>
+            </div>
+
+            <!-- Status Filter (Approved / Rejected / Pending) -->
+            <div style="width: 170px;" class="form-group">
+              <label class="form-label" for="filterStatus">Status</label>
+              <select class="form-control" id="filterStatus">
+                <option value="all">All Statuses</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+                <option value="Pending">Pending</option>
+              </select>
+            </div>
+
+            <!-- Reset Filters Button -->
+            <div class="form-group">
+              <button class="btn btn-outline" id="btnResetFilters" type="button" style="height: 42px;">
+                Reset
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- FULL-WIDTH DATA TABLE -->
+        <section class="card" aria-label="Application History Data Table">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Historical Applications Ledger</h2>
+              <p class="card-subtitle" id="tableResultCountSubtitle">Showing 8 of 8 applications</p>
+            </div>
+            <!-- Small Export Button above the table (top-right) -->
+            <button class="btn btn-secondary btn-sm" id="btnExportAboveTable" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Export</span>
+            </button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Applicant ID</th>
+                  <th>Date Submitted</th>
+                  <th>Loan Amount</th>
+                  <th>Predicted Risk</th>
+                  <th>Status</th>
+                  <th>Officer</th>
+                  <th style="text-align: right;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="historyTableBody">
+                <!-- Dynamically rendered via JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- PAGINATION CONTROLS AT THE BOTTOM -->
+          <div class="pagination-container">
+            <span id="paginationSummary">Showing 1 to 8 of 8 records</span>
+            <div class="pagination-controls">
+              <button class="page-btn" id="btnPrevPage" disabled>‹</button>
+              <button class="page-btn active" id="pageBtn1">1</button>
+              <button class="page-btn" id="pageBtn2">2</button>
+              <button class="page-btn" id="btnNextPage">›</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="data-store.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let allApps = getApplications();
+      let filteredApps = [...allApps];
+      
+      const searchInput = document.getElementById("searchApplicantId");
+      const filterRisk = document.getElementById("filterRisk");
+      const filterStatus = document.getElementById("filterStatus");
+      const btnReset = document.getElementById("btnResetFilters");
+      const tbody = document.getElementById("historyTableBody");
+      const countSubtitle = document.getElementById("tableResultCountSubtitle");
+      const paginationSummary = document.getElementById("paginationSummary");
+
+      // Check if URL parameter had search term
+      const urlParams = new URLSearchParams(window.location.search);
+      const querySearch = urlParams.get("q");
+      if (querySearch) {
+        searchInput.value = querySearch;
+      }
+
+      function applyFilters() {
+        const query = searchInput.value.toLowerCase().trim();
+        const risk = filterRisk.value;
+        const status = filterStatus.value;
+
+        filteredApps = allApps.filter(item => {
+          const matchQuery = !query || 
+            item.id.toLowerCase().includes(query) || 
+            (item.applicant_name && item.applicant_name.toLowerCase().includes(query));
+
+          const matchRisk = risk === "all" || item.risk_level.toLowerCase() === risk.toLowerCase();
+          const matchStatus = status === "all" || item.status.toLowerCase() === status.toLowerCase();
+
+          return matchQuery && matchRisk && matchStatus;
+        });
+
+        renderTable();
+      }
+
+      function renderTable() {
+        if (!filteredApps.length) {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="7" style="text-align: center; padding: var(--space-8); color: var(--text-muted);">
+                <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); margin-bottom: 6px;">No applications match your filter criteria</div>
+                <p style="font-size: 0.85rem;">Try adjusting your search terms or clearing the filters.</p>
+              </td>
+            </tr>
+          `;
+          countSubtitle.textContent = `0 applications found`;
+          paginationSummary.textContent = `Showing 0 of 0 records`;
+          return;
+        }
+
+        tbody.innerHTML = filteredApps.map(item => `
+          <tr>
+            <td>
+              <a href="prediction-result.html?id=${item.id}" class="applicant-id-link" onclick="loadApplicantToResult('${item.id}')">${item.id}</a>
+              <div style="font-size: 0.76rem; color: var(--text-muted); font-weight: 500;">${item.applicant_name || 'Applicant'}</div>
+            </td>
+            <td>${item.date}</td>
+            <td style="font-weight: 700; color: var(--text-main);">${formatCurrency(item.loan_amnt)}</td>
+            <td>${getRiskBadgeHtml(item.risk_level)}</td>
+            <td>${getStatusPillHtml(item.status)}</td>
+            <td>
+              <div style="display: flex; align-items: center; gap: 6px; font-size: 0.84rem;">
+                <span style="width: 22px; height: 22px; border-radius: 50%; background: var(--brand-primary-soft); color: var(--brand-primary); font-size: 0.68rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center;">SJ</span>
+                <span>${item.officer || 'Sarah Jenkins'}</span>
+              </div>
+            </td>
+            <td style="text-align: right;">
+              <a href="prediction-result.html?id=${item.id}" class="btn btn-secondary btn-sm" onclick="loadApplicantToResult('${item.id}')">
+                <span>View</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </td>
+          </tr>
+        `).join("");
+
+        countSubtitle.textContent = `Showing ${filteredApps.length} of ${allApps.length} applications`;
+        paginationSummary.textContent = `Showing 1 to ${filteredApps.length} of ${filteredApps.length} records`;
+      }
+
+      function loadApplicantToResult(id) {
+        const found = allApps.find(a => a.id === id);
+        if (found) {
+          saveCurrentAssessment(found);
+        }
+      }
+
+      window.loadApplicantToResult = loadApplicantToResult;
+
+      // Event Listeners
+      searchInput.addEventListener("input", applyFilters);
+      filterRisk.addEventListener("change", applyFilters);
+      filterStatus.addEventListener("change", applyFilters);
+
+      btnReset.addEventListener("click", () => {
+        searchInput.value = "";
+        filterRisk.value = "all";
+        filterStatus.value = "all";
+        document.getElementById("filterDateRange").value = "all";
+        applyFilters();
+        showToast("Filters reset to default view", "info");
+      });
+
+      // Export Buttons
+      document.getElementById("btnExportTop").addEventListener("click", () => exportApplicationsCSV(filteredApps));
+      document.getElementById("btnExportAboveTable").addEventListener("click", () => exportApplicationsCSV(filteredApps));
+
+      // Initial Render
+      applyFilters();
+    });
+  </script>
+</body>
+</html>

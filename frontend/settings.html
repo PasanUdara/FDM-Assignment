@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Credence Bank Credit Risk Assessment - Officer Configuration and Model Information">
+  <title>Credence | System Settings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- PERSISTENT LEFT SIDEBAR -->
+    <aside class="sidebar" id="appSidebar">
+      <div class="sidebar-header">
+        <a class="brand-link" href="index.html">
+          <div class="brand-icon-box">C</div>
+          <div class="brand-details">
+            <span class="brand-title">credence</span>
+            <span class="brand-tagline">Risk Intelligence</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav-container" aria-label="Main Navigation">
+        <span class="nav-section-label">Core Operations</span>
+        <a class="nav-item" href="index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect></svg>
+          <span>Dashboard</span>
+        </a>
+        <a class="nav-item" href="new-application.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+          <span>New Application</span>
+        </a>
+        <a class="nav-item" href="history.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Application History</span>
+        </a>
+
+        <span class="nav-section-label">Analytics & Config</span>
+        <a class="nav-item" href="reports.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          <span>Reports</span>
+        </a>
+        <a class="nav-item active" href="settings.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="model-badge-card">
+          <div class="model-indicator-dot"></div>
+          <div class="model-badge-info">
+            <span class="model-badge-name">XGBoost v2.4 Active</span>
+            <span class="model-badge-status">Test ROC-AUC: 0.926</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <div class="main-wrapper">
+      <!-- TOP BAR -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle-btn mobile-menu-btn" id="sidebarToggleBtn" onclick="toggleAppSidebar(event)" aria-label="Toggle navigation menu" title="Toggle Sidebar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="breadcrumb-container">
+            <a class="breadcrumb-root" href="index.html">Credence</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Settings</span>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="search-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input class="search-input" id="globalSearch" type="search" placeholder="Search applicant, ID or loan..." aria-label="Global search">
+          </div>
+
+          <button class="icon-action-btn" id="notifBtn" aria-label="Notifications">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span class="icon-badge">3</span>
+          </button>
+
+          <div class="officer-profile" id="profileBtn">
+            <div class="officer-avatar">SJ</div>
+            <div class="officer-info">
+              <span class="officer-name">Sarah Jenkins</span>
+              <span class="officer-role">Senior Loan Officer</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- MAIN CONTENT -->
+      <main class="main-content">
+        <div class="page-header-row">
+          <div class="page-title-block">
+            <h1>System Settings</h1>
+            <p>Manage loan officer profile preferences, notification alerts, machine learning model specifications, and access controls.</p>
+          </div>
+        </div>
+
+        <!-- SIMPLE TWO-COLUMN SETTINGS LAYOUT -->
+        <div class="settings-container">
+          
+          <!-- LEFT SIDE: VERTICAL LIST OF SETTING CATEGORIES -->
+          <aside class="settings-nav-card" aria-label="Settings Categories">
+            <button class="settings-tab-btn active" data-tab="tabProfile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              <span>Profile</span>
+            </button>
+
+            <button class="settings-tab-btn" data-tab="tabNotifications">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+              <span>Notifications</span>
+            </button>
+
+            <button class="settings-tab-btn" data-tab="tabModelInfo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              <span>Model Information</span>
+            </button>
+
+            <button class="settings-tab-btn" data-tab="tabAccess">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <span>Access / Permissions</span>
+            </button>
+          </aside>
+
+          <!-- RIGHT SIDE: SELECTED CATEGORY'S FORM FIELDS -->
+          <div class="card">
+            
+            <!-- CATEGORY 1: PROFILE -->
+            <div class="settings-content-panel active" id="tabProfile">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title">Loan Officer Profile</h2>
+                  <p class="card-subtitle">Manage personal identity details, official branch code, and credential security</p>
+                </div>
+              </div>
+
+              <div class="grid-12">
+                <div class="col-6 form-group">
+                  <label class="form-label" for="settingName">Full Name</label>
+                  <input class="form-control" id="settingName" type="text" value="Sarah Jenkins">
+                </div>
+                <div class="col-6 form-group">
+                  <label class="form-label" for="settingEmail">Official Bank Email</label>
+                  <input class="form-control" id="settingEmail" type="email" value="s.jenkins@credencebank.internal" readonly style="background-color: var(--bg-card-alt);">
+                </div>
+                <div class="col-6 form-group">
+                  <label class="form-label" for="settingRole">Underwriting Role</label>
+                  <input class="form-control" id="settingRole" type="text" value="Senior Credit Underwriter / Loan Officer" readonly style="background-color: var(--bg-card-alt);">
+                </div>
+                <div class="col-6 form-group">
+                  <label class="form-label" for="settingBranch">Branch Assigned</label>
+                  <input class="form-control" id="settingBranch" type="text" value="Commercial Credit Hub - Metro North (BR-402)">
+                </div>
+                <div class="col-12" style="margin-top: var(--space-4); display: flex; justify-content: flex-end;">
+                  <button class="btn btn-primary" type="button" onclick="showToast('Profile preferences updated', 'success')">Save Profile Changes</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- CATEGORY 2: NOTIFICATIONS -->
+            <div class="settings-content-panel" id="tabNotifications">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title">Notification Preferences</h2>
+                  <p class="card-subtitle">Configure email dispatch rules and automated risk warning triggers</p>
+                </div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: var(--space-5);">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: var(--space-3); border-bottom: 1px solid var(--border-subtle);">
+                  <div>
+                    <h4 style="font-size: 0.9rem; font-weight: 700;">High-Risk Immediate Alert</h4>
+                    <p style="font-size: 0.78rem; color: var(--text-muted);">Notify immediately when an applicant default probability exceeds 60%</p>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: var(--space-3); border-bottom: 1px solid var(--border-subtle);">
+                  <div>
+                    <h4 style="font-size: 0.9rem; font-weight: 700;">Daily Portfolio Risk Digest</h4>
+                    <p style="font-size: 0.78rem; color: var(--text-muted);">Receive a summary of all decisions, approvals, and model drift telemetry each morning</p>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <h4 style="font-size: 0.9rem; font-weight: 700;">Model Retraining Notification</h4>
+                    <p style="font-size: 0.78rem; color: var(--text-muted);">Alert when a new version of the credit classification model is staged or deployed</p>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- CATEGORY 3: MODEL INFORMATION (SHOW BASIC DETAILS LIKE CURRENTLY DEPLOYED MODEL AND LAST TRAINING DATE IN READ-ONLY CARD) -->
+            <div class="settings-content-panel" id="tabModelInfo">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title">Model Information & Governance</h2>
+                  <p class="card-subtitle">Active machine learning inference engine and validation benchmarks</p>
+                </div>
+                <span class="badge badge-low">Production Healthy</span>
+              </div>
+
+              <!-- Read-only Card with Deployed Model Details -->
+              <div class="read-only-model-card">
+                <div class="model-meta-item">
+                  <span class="model-meta-label">Currently Deployed Model</span>
+                  <span class="model-meta-val" style="color: var(--brand-primary);">Tuned XGBoost Classifier v2.4</span>
+                </div>
+
+                <div class="model-meta-item">
+                  <span class="model-meta-label">Last Training Date</span>
+                  <span class="model-meta-val">September 28, 2026</span>
+                </div>
+
+                <div class="model-meta-item">
+                  <span class="model-meta-label">Held-out Test ROC-AUC</span>
+                  <span class="model-meta-val" style="color: #10b981;">0.926 (Superior Discrimination)</span>
+                </div>
+
+                <div class="model-meta-item">
+                  <span class="model-meta-label">Training Records</span>
+                  <span class="model-meta-val">32,581 Historical Loans</span>
+                </div>
+
+                <div class="model-meta-item">
+                  <span class="model-meta-label">Preprocessing Pipeline</span>
+                  <span class="model-meta-val">Median Imputation + One-Hot Encoding + Scaler</span>
+                </div>
+
+                <div class="model-meta-item">
+                  <span class="model-meta-label">Inference Endpoint</span>
+                  <span class="model-meta-val">http://127.0.0.1:8000/predict</span>
+                </div>
+
+                <div class="model-meta-item">
+                  <span class="model-meta-label">Model Calibration</span>
+                  <span class="model-meta-val">Isotonic Regression (0.012 Brier Score)</span>
+                </div>
+
+                <div class="model-meta-item">
+                  <span class="model-meta-label">Serving Latency</span>
+                  <span class="model-meta-val">18ms median response time</span>
+                </div>
+              </div>
+
+              <div style="margin-top: var(--space-5); padding: var(--space-4); border-radius: var(--radius-md); background: #f0fdf4; border: 1px solid #bbf7d0; font-size: 0.82rem; color: #166534;">
+                <strong>Regulatory Compliance Note:</strong> The deployed model complies with adverse action explainability regulations. Feature weights are bounded and audited every 30 days to prevent disparate impact.
+              </div>
+            </div>
+
+            <!-- CATEGORY 4: ACCESS & PERMISSIONS -->
+            <div class="settings-content-panel" id="tabAccess">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title">Access & Lending Authority</h2>
+                  <p class="card-subtitle">Underwriting authority thresholds and dual-authorization policies</p>
+                </div>
+              </div>
+
+              <div class="grid-12">
+                <div class="col-6 form-group">
+                  <label class="form-label">Single Approval Limit</label>
+                  <input class="form-control" type="text" value="$150,000" readonly style="background-color: var(--bg-card-alt); font-weight: 700;">
+                  <span class="form-helper">Loans above $150k require Senior Committee sign-off</span>
+                </div>
+                <div class="col-6 form-group">
+                  <label class="form-label">Role Classification</label>
+                  <input class="form-control" type="text" value="Tier 2 Credit Officer" readonly style="background-color: var(--bg-card-alt); font-weight: 700;">
+                  <span class="form-helper">Granted unassisted approval on Low-Risk files</span>
+                </div>
+                <div class="col-12 form-group">
+                  <label class="form-label">Audit Log Status</label>
+                  <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--bg-card-alt); border-radius: var(--radius-md);">
+                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #10b981;"></span>
+                    <span style="font-size: 0.85rem; font-weight: 600;">Immutable Ledger Active (All lending actions cryptographically recorded)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="data-store.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabBtns = document.querySelectorAll(".settings-tab-btn");
+      const panels = document.querySelectorAll(".settings-content-panel");
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const targetTab = btn.getAttribute("data-tab");
+
+          tabBtns.forEach(b => b.classList.remove("active"));
+          panels.forEach(p => p.classList.remove("active"));
+
+          btn.classList.add("active");
+          const targetPanel = document.getElementById(targetTab);
+          if (targetPanel) {
+            targetPanel.classList.add("active");
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
